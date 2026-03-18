@@ -24,15 +24,20 @@ namespace Product.Application.Concrete
             CreateProductRequest request)
         {
             var productDomain = _mapper.Map<ProductDomain>(request);
-
             var response = await _productRepository.CreateProductAsync(productDomain);
-
             return response > 0;
         }
 
-        public Task<GetProductsDto> GetProductAsync(int productId)
+        public async Task<GetProductsDto> GetProductAsync(int productId)
         {
-            throw new NotImplementedException();
+            var response = await _productRepository.GetProductAsync(productId);
+            return _mapper.Map<GetProductsDto>(response);
+        }
+
+        public async Task<List<GetProductsDto>> GetProductAsync()
+        {
+            var response = await _productRepository.GetProductAsync();
+            return _mapper.Map<List<GetProductsDto>>(response);
         }
     }
 }

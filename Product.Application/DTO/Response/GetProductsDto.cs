@@ -1,6 +1,4 @@
 ﻿namespace Product.Application.DTO.Response
 {
-    public class GetProductsDto
-    {
-    }
+    public record GetProductsDto(string productName, string productDescription);
 }

@@ -34,5 +34,12 @@ namespace Product.Persistence.Repositories
                 .ProjectTo<ProductDomain>(_mapper.ConfigurationProvider)
                 .FirstOrDefaultAsync();
         }
+
+        public async Task<List<ProductDomain>> GetProductAsync()
+        {
+            return await _dbContext.Products
+               .ProjectTo<ProductDomain>(_mapper.ConfigurationProvider)
+               .ToListAsync();
+        }
     }
 }

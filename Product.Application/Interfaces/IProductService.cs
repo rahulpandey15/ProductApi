@@ -8,5 +8,8 @@ namespace Product.Application.Interfaces
         Task<bool> CreateProductAsync(CreateProductRequest request);
 
         Task<GetProductsDto> GetProductAsync(int productId);
+
+        Task<List<GetProductsDto>> GetProductAsync();
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Product.Application.DTO.Request;
 using Product.Application.Interfaces;
 
 namespace Product.API.Controllers
@@ -15,16 +16,25 @@ namespace Product.API.Controllers
         }
 
         [HttpGet]
+        [Route("{productId}")]
+        public async Task<IActionResult> Get(int productId)
+        {
+            var data = await _productService.GetProductAsync(productId);
+
+            return Ok(data);
+        }
+        [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return Ok();
+            var data = await _productService.GetProductAsync();
+            return Ok(data);
         }
 
-
         [HttpPost]
-        public async Task<IActionResult> Post()
+        public async Task<IActionResult> Post(CreateProductRequest request)
         {
-            return Ok();
+            var data = await _productService.CreateProductAsync(request);
+            return Ok(data);
         }
 
         [HttpPut]
