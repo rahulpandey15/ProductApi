@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Product.Domain
+namespace Product.Domain.Entities
 {
     public class OrderDomain
     {

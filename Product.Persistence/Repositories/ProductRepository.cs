@@ -1,4 +1,4 @@
-﻿using Product.Domain;
+﻿using Product.Domain.Entities;
 using Product.Domain.Interfaces;
 
 namespace Product.Persistence.Concrete

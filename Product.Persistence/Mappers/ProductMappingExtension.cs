@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Product.Domain;
+using Product.Domain.Entities;
 using Product.Persistence.Entities;
 
 
