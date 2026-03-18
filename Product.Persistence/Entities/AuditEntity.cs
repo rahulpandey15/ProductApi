@@ -2,7 +2,7 @@
 
 namespace Product.Persistence.Entities
 {
-    internal class AuditEntity
+    public class AuditEntity
     {
         public string CreatedBy { get; set; } = default!;
         public DateTime CreatedOn { get; set; }

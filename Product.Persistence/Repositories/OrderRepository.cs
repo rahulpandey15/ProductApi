@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
-using Product.Application.Interfaces;
 using Product.Domain.Entities;
+using Product.Domain.Interfaces;
 using Product.Persistence.Context;
 using System.Text;
 
-namespace Product.Persistence.Concrete
+namespace Product.Persistence.Repositories
 {
     internal class OrderRepository : IOrderRepository
     {

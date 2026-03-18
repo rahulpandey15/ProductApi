@@ -1,11 +1,11 @@
 ﻿using Product.Domain.Entities;
 
-namespace Product.Application.Interfaces
+namespace Product.Domain.Interfaces
 {
     public interface IProductRepository
     {
         Task<ProductDomain> GetProductAsync(int id);
 
-        Task<int> CreateProductAsync(ProductDomain order);
+        Task<int> CreateProductAsync(ProductDomain productDomain);
     }
 }

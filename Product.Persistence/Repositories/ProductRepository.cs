@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
-using Product.Application.Interfaces;
 using Product.Domain.Entities;
+using Product.Domain.Interfaces;
 using Product.Persistence.Context;
+using Product.Persistence.Entities;
 
-namespace Product.Persistence.Concrete
+namespace Product.Persistence.Repositories
 {
     internal class ProductRepository : IProductRepository
     {
@@ -15,12 +16,15 @@ namespace Product.Persistence.Concrete
         public ProductRepository(ProductDbContext dbContext,
             IMapper mapper)
         {
-            this._dbContext = dbContext;
-            this._mapper = mapper;
+            _dbContext = dbContext;
+            _mapper = mapper;
         }
-        public Task<int> CreateProductAsync(ProductDomain order)
+        public async Task<int> CreateProductAsync(ProductDomain productDomain)
         {
-            throw new NotImplementedException();
+            var product = _mapper.Map<Products>(productDomain);
+
+            _dbContext.Products.Add(product);
+            return await _dbContext.SaveChangesAsync();
         }
 
         public async Task<ProductDomain> GetProductAsync(int id)

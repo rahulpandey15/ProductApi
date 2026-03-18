@@ -2,7 +2,7 @@
 
 namespace Product.Persistence.Entities
 {
-    internal class Order : AuditEntity
+    public class Order : AuditEntity
     {
         public int Id {  get; set; }
 

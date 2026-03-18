@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Product.Application.DTO.Request;
+using Product.Domain.Entities;
 
 
 namespace Product.Application.Mappers
@@ -10,6 +9,7 @@ namespace Product.Application.Mappers
     {
         public ProductServiceMappingExtension()
         {
+            CreateMap<ProductDomain, CreateProductRequest>().ReverseMap();
         }
     }
 }

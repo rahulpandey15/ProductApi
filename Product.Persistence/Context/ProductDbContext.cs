@@ -3,9 +3,9 @@ using Product.Persistence.Entities;
 
 namespace Product.Persistence.Context
 {
-    internal class ProductDbContext : DbContext
+    public class ProductDbContext : DbContext
     {
-        internal ProductDbContext(DbContextOptions<ProductDbContext> options)
+        public ProductDbContext(DbContextOptions<ProductDbContext> options)
             : base(options)
         {
             
@@ -13,8 +13,8 @@ namespace Product.Persistence.Context
 
 
 
-        internal DbSet<Products> Products { get; set; }    
+        public DbSet<Products> Products { get; set; }    
 
-        internal DbSet<Order> Orders { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }

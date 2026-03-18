@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Product.Application.Interfaces;
-using Product.Persistence.Concrete;
+using Product.Application;
+using Product.Domain.Interfaces;
 using Product.Persistence.Context;
+using Product.Persistence.Repositories;
 
 namespace Product.Persistence
 {   
@@ -13,6 +14,8 @@ namespace Product.Persistence
             this IServiceCollection services,
             IConfiguration configuration)
         {
+            services.AddAutoMapper(typeof(PersistenceApplicationMarker).Assembly);
+
 
             services.AddDbContext<ProductDbContext>(
                options =>
