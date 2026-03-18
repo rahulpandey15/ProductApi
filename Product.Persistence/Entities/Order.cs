@@ -6,8 +6,8 @@ namespace Product.Persistence.Entities
     {
         public int Id {  get; set; }
 
-        public string OrderName { get; set; }
+        public string OrderName { get; set; } = default!;
 
-        public string OrderDescription {  get; set; }
+        public string OrderDescription { get; set; } = default!;
     }
 }

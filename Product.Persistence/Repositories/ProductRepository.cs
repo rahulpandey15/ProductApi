@@ -1,5 +1,5 @@
-﻿using Product.Domain.Entities;
-using Product.Domain.Interfaces;
+﻿using Product.Application.Interfaces;
+using Product.Domain.Entities;
 
 namespace Product.Persistence.Concrete
 {

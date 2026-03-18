@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Product.Domain.Interfaces;
+using Product.Application.Interfaces;
 using Product.Persistence.Concrete;
 using Product.Persistence.Context;
 
 namespace Product.Persistence
-{
+{   
     public static class ServiceRegistration
     {
         public static IServiceCollection RegisterPersistence(

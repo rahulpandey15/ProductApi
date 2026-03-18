@@ -1,8 +1,6 @@
-﻿
+﻿using Product.Domain.Entities;
 
-using Product.Domain.Entities;
-
-namespace Product.Domain.Interfaces
+namespace Product.Application.Interfaces
 {
     public interface IProductRepository
     {

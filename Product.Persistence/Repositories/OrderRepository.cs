@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using Product.Application.Interfaces;
 using Product.Domain.Entities;
-using Product.Domain.Interfaces;
 using Product.Persistence.Context;
 using System.Text;
 
@@ -18,7 +18,7 @@ namespace Product.Persistence.Concrete
 
         public Task<int> CreateOrderAsync(OrderDomain order)
         {
-            var order = 
+            throw new NotImplementedException();
         }
 
         public Task<OrderDomain> GetOrderAsync(int id)
