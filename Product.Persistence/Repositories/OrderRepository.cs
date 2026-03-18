@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using Microsoft.EntityFrameworkCore;
 using Product.Application.Interfaces;
 using Product.Domain.Entities;
 using Product.Persistence.Context;
@@ -9,11 +11,13 @@ namespace Product.Persistence.Concrete
     internal class OrderRepository : IOrderRepository
     {
         private readonly ProductDbContext _dbContext;
+        private readonly IMapper _mapper;
 
         public OrderRepository(ProductDbContext dbContext,
             IMapper mapper)
         {
             this._dbContext = dbContext;
+            this._mapper = mapper;
         }
 
         public Task<int> CreateOrderAsync(OrderDomain order)
@@ -21,9 +25,13 @@ namespace Product.Persistence.Concrete
             throw new NotImplementedException();
         }
 
-        public Task<OrderDomain> GetOrderAsync(int id)
+        public async Task<OrderDomain> GetOrderAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _dbContext.Orders
+                 .Where(x => x.Id == id)
+                 .ProjectTo<OrderDomain>(_mapper.ConfigurationProvider)
+                 .FirstOrDefaultAsync();
+                
         }
     }
 }
