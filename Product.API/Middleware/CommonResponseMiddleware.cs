@@ -1,6 +1,5 @@
 ﻿using Product.Application.DTO.Response;
 using System.Text.Json;
-using System.Threading.Tasks.Dataflow;
 
 namespace Product.API.Middleware
 {
@@ -20,22 +19,17 @@ namespace Product.API.Middleware
             var originalBody = context.Response.Body;
 
             using var memoryStream
-                 = new MemoryStream();  
+                 = new MemoryStream();
 
             context.Response.Body = memoryStream;
 
             await next(context);
 
-
-            // modify reponse
-
-
-            if(context.Response.ContentType != null 
+            if (context.Response.ContentType != null
                 && context.Response.ContentType.Contains("application/json"))
             {
                 memoryStream.Seek(0, SeekOrigin.Begin);
                 var repsonseBody = await new StreamReader(memoryStream).ReadToEndAsync();
-
 
                 var repsonseObj
                      = new ApiResponseDto<object>(
@@ -50,7 +44,6 @@ namespace Product.API.Middleware
                 context.Response.Body = originalBody;
 
                 await context.Response.WriteAsync(jsonResponse);
-
             }
         }
     }
